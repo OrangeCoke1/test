@@ -18,11 +18,13 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build And Deploy
+        id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          app_location: "."                 # 网页文件位置（根目录）
-          api_location: ""                  # 没有 API
-          output_location: "."              # 网页输出位置（也是根目录）
-          app_build_command: ""             # 👉 不要 build，留空即可
+          action: "upload"                   
+          app_location: "."                 
+          api_location: ""                  
+          output_location: "."              
+          app_build_command: ""             
